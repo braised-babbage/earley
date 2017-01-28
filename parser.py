@@ -34,8 +34,6 @@ def advance(item):
 def completions(item,states):
     """Returns parent items associated with the given item.
 Note that if item has unprocessed symbols, then there are no completions."""
-    if item.rest != ():
-        return []
     return [advance(prev) for prev in states[item.i]
             if prev.rest != () and prev.rest[0] == item.lhs]
 
